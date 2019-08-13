@@ -13,11 +13,14 @@ express()
   .use(bodyParser.urlencoded({ extended: false }))
   .use(bodyParser.json())
   .get('/', (req, res) => {
-    const passedVariable = req.session.valid;
-    const studentEmail = req.session.student_email;
-    console.log('___ SESSION session:valid:: ___ ' + studentEmail);
-    console.log('___ SESSION session:student_email:: ___ ' + student_email);
-    res.render('pages/index', {'student_email':studentEmail})
+    let sessionEmail = 'he@oup.com';
+    if (req.session) {
+      if (req.session.student_email) {
+        sessionEmail = req.session.student_email;
+      }
+    }
+    console.log('___ SESSION session:student_email:: ___ ' + sessionEmail);
+    res.render('pages/index', {'student_email':sessionEmail})
   })
   .post('/', (req, res) => {
     console.log(req.body);
