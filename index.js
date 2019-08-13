@@ -14,11 +14,13 @@ express()
   .use(bodyParser.json())
   .get('/', (req, res) => {
     const passedVariable = req.session.valid;
-    console.log('___ SESSION session:valid:: ___ ' + passedVariable);
-    res.render('pages/index', {'student_email':req.session.student_email})
+    const studentEmail = req.session.student_email;
+    console.log('___ SESSION session:valid:: ___ ' + studentEmail);
+    console.log('___ SESSION session:student_email:: ___ ' + student_email);
+    res.render('pages/index', {'student_email':studentEmail})
   })
   .post('/', (req, res) => {
-    console.log(req);
+    console.log(req.lis_person_contact_email_primary);
     console.log('=============== | REQ ====================')
     // console.log(res);
     // console.log('=============== | RES ====================')
