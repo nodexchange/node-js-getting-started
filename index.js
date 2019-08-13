@@ -11,6 +11,8 @@ express()
   .use(bodyParser.json())
   .get('/', (req, res) => res.render('pages/index'))
   .post('/', (req, res) => {
-    res.end(true);
+    console.log(req);
+    console.log(res);
+    res.end();
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))

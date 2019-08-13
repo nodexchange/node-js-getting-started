@@ -1,4 +1,14 @@
+## MARCIN ##
+docker run --rm -e HEROKU_API_KEY="2e77aebe-31f1-4a2b-bb42-f77a69dec901" wingrunr21/alpine-heroku-cli list
+
+docker run --rm -e HEROKU_API_KEY="2e77aebe-31f1-4a2b-bb42-f77a69dec901" -i wingrunr21/alpine-heroku-cli logs --app oup-impact-survey
+
+
+docker run --name ubuntu_bash --rm -i -t ubuntu bash
+
+
 # node-js-getting-started
+
 
 A barebones Node.js app using [Express 4](http://expressjs.com/).
 
