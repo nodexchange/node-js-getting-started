@@ -19,13 +19,13 @@ express()
   })
   .post('/', (req, res) => {
     console.log(req);
-    // console.log('=============== | REQ ====================')
+    console.log('=============== | REQ ====================')
     // console.log(res);
     // console.log('=============== | RES ====================')
     const studentEmail = req.lis_person_contact_email_primary;
     req.session.valid = true;
     req.session.student_email = studentEmail;
-    res.redirect('/survey.html?email='+studentEmail);
+    res.redirect('/?email='+studentEmail);
     // res.redirect(200, '/survey.html?email='+studentEmail);
     // res.end();
   })
