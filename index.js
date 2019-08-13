@@ -19,12 +19,14 @@ express()
   })
   .post('/', (req, res) => {
     console.log(req);
-    console.log('=============== | REQ ====================')
-    console.log(res);
-    console.log('=============== | RES ====================')
+    // console.log('=============== | REQ ====================')
+    // console.log(res);
+    // console.log('=============== | RES ====================')
+    const studentEmail = req.lis_person_contact_email_primary;
     req.session.valid = true;
-    req.session.student_email = res.lis_person_contact_email_primary;
-    res.redirect(200, '/survey.html?email='+res.lis_person_contact_email_primary);
+    req.session.student_email = studentEmail;
+    res.redirect('/survey.html?email='+studentEmail);
+    // res.redirect(200, '/survey.html?email='+studentEmail);
     // res.end();
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
