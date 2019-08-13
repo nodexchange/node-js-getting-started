@@ -20,11 +20,11 @@ express()
     res.render('pages/index', {'student_email':studentEmail})
   })
   .post('/', (req, res) => {
-    console.log(req.lis_person_contact_email_primary);
+    console.log(req.body);
     console.log('=============== | REQ ====================')
     // console.log(res);
     // console.log('=============== | RES ====================')
-    const studentEmail = req.lis_person_contact_email_primary;
+    const studentEmail = req.body.lis_person_contact_email_primary;
     req.session.valid = true;
     req.session.student_email = studentEmail;
     res.redirect('/?email='+studentEmail);
