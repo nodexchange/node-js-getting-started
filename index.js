@@ -9,10 +9,18 @@ express()
   .set('view engine', 'ejs')
   .use(bodyParser.urlencoded({ extended: false }))
   .use(bodyParser.json())
-  .get('/', (req, res) => res.render('pages/index'))
+  .get('/', (req, res) => {
+    const passedVariable = req.session.valid;
+    console.log('___ SESSION session:valid:: ___ ' + passedVariable);
+    res.render('pages/index')
+  })
   .post('/', (req, res) => {
+    console.log('=============== REQ ====================')
     console.log(req);
+    console.log('=============== RES ====================')
     console.log(res);
-    res.end();
+    req.session.valid = true;
+    res.redirect(200, '/survey.html?email='+res.lis_person_contact_email_primary);
+    // res.end();
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
