@@ -4,33 +4,55 @@
   <!-- <% include ../partials/header.ejs %> -->
   <style>
   html, body {
-    margin:0;
-    padding:0;  
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
   }
   </style>
 </head>
 <body>
-<!-- <% include ../partials/nav.ejs %> -->
-<div class="jumbotron text-center">
-  <div class="container">
-    <!-- <div id="ejs_student_name">
-        <h2><%= student_email %></h2>
-    </div> -->
-    <!-- <div id="student_name"></div> -->
-    <iframe 
-      src="/survey.html" 
-      frameborder=0 
-      scrolling=no 
-      allowtransparency=true 
-      width=600 
-      height=800>
-    </iframe>
-    <!-- <a href="/" class="lang-logo">
-      <img src="/oup-epigeum-logo-rectangle-cropped.png">
-    </a> -->
-    <!-- <h1>Getting Started</h1>
-    <p>Basic App</p> -->
-  </div>
-</div>
+  <div class="impact-survey"></div>
+
+<% if (student_email) { %>
+  <script>
+     window.student_email = '<%= student_email %>'
+  </script>
+<% } %>
+
+<script>
+  var pageReady = function(){
+    // Handler when the DOM is fully loaded
+    var impactSurveyDivs = document.getElementsByClassName('impact-survey');
+    console.log(impactSurveyDivs);
+    if (impactSurveyDivs.length > 0) {
+      for (var i=0; i<impactSurveyDivs.length; i++) {
+        console.log('____ ::: need to load here ::: ' + impactSurveyDivs[i] + ':: EMAIL :: ' + window.student_email);
+        var parentDiv = impactSurveyDivs[i];
+        parentDiv.style.width = '100%';
+        parentDiv.style.height = '100%';
+        parentDiv.style.display = 'block';
+        var iframeEl = document.createElement('iframe');
+        iframeEl.src = '/spa/index.html';
+        iframeEl.frameborder = 0;
+        iframeEl.scrolling = 0;
+        iframeEl.allowtransparency = true;
+        iframeEl.width = '100%';
+        iframeEl.height = '100%';
+        parentDiv.appendChild(iframeEl);
+      }
+    }
+
+  };
+
+  if (
+      document.readyState === "complete" ||
+      (document.readyState !== "loading" && !document.documentElement.doScroll)
+  ) {
+    pageReady();
+  } else {
+    document.addEventListener("DOMContentLoaded", pageReady);
+  }
+</script>
 </body>
 </html>
