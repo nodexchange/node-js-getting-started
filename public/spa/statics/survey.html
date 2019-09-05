@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Basic iFrame test</title>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    #survey {
+      width:100%;
+      height: 100%;
+      display: block;
+    }
+    .smcx-embed {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100% !important;
+      height: 100% !important;
+      max-width: 1400px !important;
+    }
+    .smcx-embed>.smcx-iframe-container {
+      width: 100% !important;
+      height: 100% !important;
+      max-width: 1400px !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="survey">
+    <iframe id="sm-iframe" frameborder="0" scrolling="no" allowtransparency="true" width="100%" height="800px"></iframe>
+    <!-- <script>(function(t,e,s,n){var o,a,c;t.SMCX=t.SMCX||[],e.getElementById(n)||(o=e.getElementsByTagName(s),a=o[o.length-1],c=e.createElement(s),c.type="text/javascript",c.async=!0,c.id=n,c.src=["https:"===location.protocol?"https://":"http://","widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgdxtwE1eRnJicoMIwIHX8fE0QVPcq2UnOha_2B5DDj24_2FjS.js"].join(""),a.parentNode.insertBefore(c,a))})(window,document,"script","smcx-sdk");</script><a style="font: 12px Helvetica, sans-serif; color: #999; text-decoration: none;" href=https://www.surveymonkey.com> Create your own user feedback survey </a> -->
+  </div>
+  <script>
+      var survey = document.getElementById('survey');
+      var smIframe = document.getElementById('sm-iframe');
+      smIframe.src = 'https://www.surveymonkey.co.uk/r/3XDVWDF?impact_id=32131232&email=test@oup.com';
+      console.log(survey.id, '>>> LOGIC HERE NESTED iFrame logic here');
+  </script>
+</body>
+</html>
+
