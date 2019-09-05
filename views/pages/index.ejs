@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <% include ../partials/header.ejs %>
+  <!-- <% include ../partials/header.ejs %> -->
+  <style>
+  html, body {
+    margin:0;
+    padding:0;  
+  }
+  </style>
 </head>
 <body>
-<% include ../partials/nav.ejs %>
+<!-- <% include ../partials/nav.ejs %> -->
 <div class="jumbotron text-center">
   <div class="container">
-    <div id="ejs_student_name">
+    <!-- <div id="ejs_student_name">
         <h2><%= student_email %></h2>
-    </div>
-    <div id="student_name"></div>
+    </div> -->
+    <!-- <div id="student_name"></div> -->
     <iframe 
       src="/survey.html" 
       frameborder=0 
@@ -19,11 +25,11 @@
       width=600 
       height=800>
     </iframe>
-    <a href="/" class="lang-logo">
+    <!-- <a href="/" class="lang-logo">
       <img src="/oup-epigeum-logo-rectangle-cropped.png">
-    </a>
-    <h1>Getting Started</h1>
-    <p>Basic App</p>
+    </a> -->
+    <!-- <h1>Getting Started</h1>
+    <p>Basic App</p> -->
   </div>
 </div>
 </body>

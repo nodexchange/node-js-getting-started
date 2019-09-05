@@ -17,25 +17,46 @@
       height: 100%;
       display: block;
     }
-    .smcx-embed {
-      width: 100% !important;
-      height: 100% !important;
-      max-width: 1000px !important;
-    }
-    .smcx-embed>.smcx-iframe-container {
-      width: 100% !important;
-      height: 100% !important;
-      max-width: 1000px !important;
-    }
   </style>
 </head>
 <body>
-  <div id="survey">
-    <script>(function(t,e,s,n){var o,a,c;t.SMCX=t.SMCX||[],e.getElementById(n)||(o=e.getElementsByTagName(s),a=o[o.length-1],c=e.createElement(s),c.type="text/javascript",c.async=!0,c.id=n,c.src=["https:"===location.protocol?"https://":"http://","widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgdxtwE1eRnJicoMIwIHX8fE0QVPcq2UnOha_2B5DDj24_2FjS.js"].join(""),a.parentNode.insertBefore(c,a))})(window,document,"script","smcx-sdk");</script><a style="font: 12px Helvetica, sans-serif; color: #999; text-decoration: none;" href=https://www.surveymonkey.com> Create your own user feedback survey </a>
+  <div class="impact-survey">
+
+    <!-- http://oup-impact-dev.eu-west-1.elasticbeanstalk.com/survey/ -->
   </div>
   <script>
-      var survey = document.getElementById('survey');
-      console.log(survey.id, '>>> LOGIC HERE NESTED iFrame logic here');
+    var pageReady = function(){
+      // Handler when the DOM is fully loaded
+      var impactSurveyDivs = document.getElementsByClassName('impact-survey');
+      console.log(impactSurveyDivs);
+      if (impactSurveyDivs.length > 0) {
+        for (var i=0; i<impactSurveyDivs.length; i++) {
+          console.log('____ ::: need to load here ::: ' + impactSurveyDivs[i]);
+          var parentDiv = impactSurveyDivs[i];
+          parentDiv.style.width = '100%';
+          parentDiv.style.height = '100%';
+          parentDiv.style.display = 'block';
+          var iframeEl = document.createElement('iframe');
+          iframeEl.src = 'http://oup-impact-dev.eu-west-1.elasticbeanstalk.com/survey/';
+          iframeEl.frameborder = 0;
+          iframeEl.scrolling = 0;
+          iframeEl.allowtransparency = true;
+          iframeEl.width = '100%';
+          iframeEl.height = '100%';
+          parentDiv.appendChild(iframeEl);
+        }
+      }
+
+    };
+
+    if (
+        document.readyState === "complete" ||
+        (document.readyState !== "loading" && !document.documentElement.doScroll)
+    ) {
+      pageReady();
+    } else {
+      document.addEventListener("DOMContentLoaded", pageReady);
+    }
   </script>
 </body>
 </html>
